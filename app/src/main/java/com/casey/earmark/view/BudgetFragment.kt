@@ -36,7 +36,10 @@ class BudgetFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this@BudgetFragment)[BudgetViewModel::class.java].apply {
-            budgetLiveData.observe(viewLifecycleOwner, ResourceViewObserver(fetchBudgetResourceView))
+            budgetLiveData.observe(
+                viewLifecycleOwner,
+                ResourceViewObserver(fetchBudgetResourceView)
+            )
         }
 
         recyclerView = view.findViewById(R.id.recyclerView)
@@ -46,9 +49,6 @@ class BudgetFragment : Fragment() {
             when (it.itemId) {
                 R.id.menuAdd -> {
                     AddBudgetFragment().show(parentFragmentManager, null)
-                    /*parentFragmentManager.beginTransaction()
-                        .replace(R.id.container, AddBudgetFragment())
-                        .commit()*/
                 }
                 R.id.menuMoreOptions -> {
                     if (submenuLayout.isVisible) {
@@ -70,8 +70,8 @@ class BudgetFragment : Fragment() {
     private val fetchBudgetResourceView = object : ResourceView<List<BudgetItem>> {
         override fun showData(data: List<BudgetItem>) {
             recyclerView.apply {
-                savingsAdapter = BudgetAdapter(mockList())
-                layoutManager = GridLayoutManager(this@BudgetFragment.requireContext(), 4)
+                savingsAdapter = BudgetAdapter(data)
+                layoutManager = GridLayoutManager(this@BudgetFragment.requireContext(), 3)
                 adapter = savingsAdapter
             }
         }
@@ -85,12 +85,11 @@ class BudgetFragment : Fragment() {
             Toast.makeText(requireContext(), "Error: ${error.localizedMessage}", Toast.LENGTH_SHORT)
                 .show()
         }
-
     }
 }
 
 fun mockList(): List<BudgetItem> {
-    val newItem = BudgetItem(0,"rent", 1100.00, "11/22/22")
+    val newItem = BudgetItem(0, "rent", 1100.00, "11/22/22")
     val list = mutableListOf<BudgetItem>()
     list.add(newItem)
     list.add(newItem)
