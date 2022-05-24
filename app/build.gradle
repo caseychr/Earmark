@@ -49,7 +49,7 @@ dependencies {
 
     // Dagger
     implementation('com.google.dagger:dagger:2.42')
-    implementation('com.google.dagger:dagger-compiler:2.42')
+    kapt('com.google.dagger:dagger-compiler:2.42')
 
     // Livedata
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'

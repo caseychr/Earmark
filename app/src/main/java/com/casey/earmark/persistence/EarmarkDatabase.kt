@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.casey.earmark.model.BudgetItem
 import com.casey.earmark.model.DebtItem
 import com.casey.earmark.model.SavingsItem
 
-@Database(entities = [DebtItem::class, SavingsItem::class], version = 1)
+@Database(entities = [DebtItem::class, SavingsItem::class, BudgetItem::class], version = 1)
 abstract class EarmarkDatabase : RoomDatabase() {
     abstract fun debtDao(): DebtDao
     abstract fun savingsDao(): SavingsDao
@@ -19,8 +20,7 @@ abstract class EarmarkDatabase : RoomDatabase() {
         fun db(context: Context): EarmarkDatabase {
             return Room.databaseBuilder(
                 context, EarmarkDatabase::class.java, DATABASE_NAME
-            )
-                .build()
+            ).build()
         }
     }
 }
