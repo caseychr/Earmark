@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuMonth"
+        android:title="Month"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menuMoreOptions"
+        android:title="moreOptions"
+        android:icon="@drawable/ic_chevron_down"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menuAdd"
+        android:title="add"
+        android:icon="@drawable/ic_add"
+        app:showAsAction="ifRoom" />
+
+</menu>

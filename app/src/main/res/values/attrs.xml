@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Attributes reusable across views -->
+    <declare-styleable name="ProgressAmountView">
+        <attr name="totalText" format="string" />
+        <attr name="currentText" format="string" />
+        <attr name="interestText" format="string" />
+        <attr name="progressBar" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="AppToolbar">
+        <attr name="title" format="string" />
+        <attr name="isSubmenuShowable" format="boolean"/>
+    </declare-styleable>
+
+</resources>
